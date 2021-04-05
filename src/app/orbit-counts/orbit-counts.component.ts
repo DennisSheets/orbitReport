@@ -20,7 +20,8 @@ export class OrbitCountsComponent implements OnInit {
 
   // function accepts satellite type 
   // (a string ex. "Space Debris")
-  // as a parameter 
+  // as a parameter
+  // {{myCountFunction('Space Debris')}} 
 
 
   
