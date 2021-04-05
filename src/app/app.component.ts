@@ -5,27 +5,66 @@ import { Satellite } from './satellite';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
-
 })
 export class AppComponent {
   title = 'Ass6-orbit-report';
   sourceList: Satellite[];
   displayList: Satellite[];
+  // satTotal: number;
+  // satSpaceDebris: number;
+  // satCommunication: number;
+  // satProbe: number;
+  // satPositioning: number;
+  // satSpaceStation: number;
+  // satTelescope: number;
+  // satType: string;
+  // summaryList: number[];
 
   constructor() {
     this.sourceList = [];
     this.displayList = [];
+    // this.satTotal = 0;
+    // this.satSpaceDebris = 0;
+    // this.satCommunication = 0;
+    // this.satProbe = 0;
+    // this.satPositioning = 0;
+    // this.satSpaceStation = 0;
+    // this.satTelescope = 0;
     let satellitesUrl = 'https://handlers.education.launchcode.org/static/satellites.json';
  
     window.fetch(satellitesUrl).then(function(response) {
       response.json().then(function(data) {
-        console.log(data.satellites.length);
+        //console.log(data.satellites.length);
 
         let fetchedSatellites = data.satellites;
+        //this.satTotal = fetchedSatellites.length;
+        //console.log(this.satTotal);  
+
         // TODO: loop over satellites
+        
         for (let i =0; i < fetchedSatellites.length; i ++) {
-  
-          // TODO: create a Satellite object using 
+          let satType = fetchedSatellites[i].type
+
+          // if(satType === "Space Debris") {
+          //   this.satSpaceDebris += 1;
+          // }
+          // if (satType === "Communication") {
+          //   this.satCommunication += 1;
+          // } 
+          // if (satType === "Probe") {
+          //   this.satProbe += 1;
+          // }
+          // if (satType === "Positioning") {
+          //   this.satPositioning += 1;
+          // }
+          // if (satType === "Space Station") {
+          //   this.satSpaceStation += 1;
+          // }
+          // if (satType === "Telescope") {
+          //   this.satTelescope += 1;
+          // }  
+         
+      // TODO: create a Satellite object using 
           let satellite = new Satellite(
               fetchedSatellites[i].name, 
               fetchedSatellites[i].type, 
@@ -37,6 +76,14 @@ export class AppComponent {
         };
         // make a copy of the sourceList to be shown to the user
         this.displayList = this.sourceList.slice(0);
+
+        // console.log("spaceDebris: " + this.satSpaceDebris);
+        // this.summaryList.push(this.satSpaceDebris)  
+        // console.log("communication: " + this.satCommunication);  
+        // console.log("probe: " + this.satProbe);
+        // console.log("positioning: " + this.satPositioning);  
+        // console.log("Space Station: " + this.satSpaceStation);  
+        // console.log("Telescope: " + this.satTelescope);        
         
       }.bind(this));
     }.bind(this));
