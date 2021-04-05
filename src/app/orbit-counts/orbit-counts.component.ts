@@ -14,5 +14,15 @@ export class OrbitCountsComponent implements OnInit {
 
   ngOnInit() {
   }
+  //          - Gerard notes
+  // function will return number of satellites
+  // corresponding to given type
+
+  // function accepts satellite type 
+  // (a string ex. "Space Debris")
+  // as a parameter 
+
+
+  
 
 }
